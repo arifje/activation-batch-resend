@@ -3,11 +3,8 @@
     "description": "Resend activation email for unactivated users",
     "type": "craft-plugin",
     "version": "2.0.0",
-    "autoload": {
-        "psr-4": {
-            "youclickmedia\\activationbatchresend\\": "src/"
-        }
-    },
+    "keywords": ["activation", "users", "email"],
+    "license": "MIT",
     "authors": [
         {
             "name": "Arjan",
@@ -19,8 +16,13 @@
         "craftcms/cms": "^3.0.0-RC1|^4.0.0-beta.3",
         "php": "^7.4|^8.0|^8.1"
     },
+    "autoload": {
+        "psr-4": {
+            "youclickmedia\\activationbatchresend\\": "src/"
+        }
+    },
     "extra": {
-        "name": "Activation batch resend",
+        "name": "Activation Batch Resend",
         "handle": "activation-batch-resend",
         "schemaVersion": "1.0.0",
         "hasCpSettings": false,
