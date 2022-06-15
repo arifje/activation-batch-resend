@@ -1,0 +1,54 @@
+{% import "_includes/forms" as forms %}
+
+<form class="utility" method="post" accept-charset="UTF-8" action="/actions/activation-batch-resend/default/resend-activation">
+
+    {{ csrfInput() }}
+	{{ redirectInput('cp/utilities/activationbatchresend-activation-batch-resend-utility') }}
+    <input type="hidden" name="utility" value="1" />
+
+    <p class="light">
+        {{ 'Resend activation mail to all users that haven\'t activated their account'|t('activationbatchresend') }}
+    </p>
+
+	<p>
+	    {{ forms.textField({
+	        first: true,
+	        label: "Email subject"|t('activation-batch-resend'),
+	        id: 'emailSubject',
+	        name: 'emailSubject',
+	        value: '',
+	        autofocus: false,
+	        autocomplete: false,
+	        required: false,
+	        placeholder: 'Optional',
+	        disabled: false
+	    }) }}
+
+		<div class="heading">
+		  <label id="emailMessage-label" for="emailMessage">Email Message</label>
+        </div>
+		
+         {{ forms.textArea({
+            label: "Email Message"|t('activation-batch-resend'),
+            id: 'emailMessage',
+            rows: 10,
+            name: 'emailMessage',
+            value: '',
+            autocomplete: false,
+            placeholder: 'Optional'
+        }) }}   
+        
+        {% set options = [1,2,3,4,5,6,7] %}
+        
+          {{ forms.selectField({
+            label: "Creation date older than (days)"|t('activation-batch-resend'),
+            id: 'creationDate',
+            name: 'creationDate',
+            options:  {'1': '1 day', '2': '2 days', '3' : '3 days', '4' : '4 days', '5' : '5 days'},
+        }) }}  
+               
+	</p>
+	
+    <input type="submit" class="btn submit" value="{{ 'Resend activation mails'|t('activation-batch-resend') }}" />
+    
+</form>
